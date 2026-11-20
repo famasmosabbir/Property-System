@@ -1,0 +1,116 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maintenance | Property Ecosystem</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="sidebar">
+        <h2>Property System</h2>
+        <p>Management Portal</p>
+
+        <a href="dashboard.html">Dashboard</a>
+        <a href="property.html">Properties</a>
+        <a href="tenant.html">Tenants</a>
+        <a href="lease.html">Leases</a>
+        <a href="maintenance.html" class="active">Maintenance</a>
+        <a href="payment.html">Payments</a>
+        <a href="index.html">Logout</a>
+    </div>
+
+    <div class="main-content">
+        <h1>Maintenance Management</h1>
+        <p>Report property issues and track maintenance requests.</p>
+
+        <div class="form-container">
+            <h2 id="formTitle">Create Maintenance Request</h2>
+
+            <form id="maintenanceForm">
+                <input type="hidden" id="editMaintenanceIndex">
+
+                <label for="maintenanceProperty">Property Name</label>
+                <input
+                    type="text"
+                    id="maintenanceProperty"
+                    placeholder="Enter property name"
+                    required
+                >
+
+                <label for="problemType">Problem Type</label>
+                <select id="problemType" required>
+                    <option value="">Select Problem Type</option>
+                    <option value="Plumbing">Plumbing</option>
+                    <option value="Electrical">Electrical</option>
+                    <option value="Air Conditioning">Air Conditioning</option>
+                    <option value="Painting">Painting</option>
+                    <option value="Cleaning">Cleaning</option>
+                    <option value="Structural">Structural</option>
+                    <option value="Other">Other</option>
+                </select>
+
+                <label for="description">Problem Description</label>
+                <textarea
+                    id="description"
+                    rows="4"
+                    placeholder="Describe the maintenance issue..."
+                    required
+                ></textarea>
+
+                <label for="priority">Priority</label>
+                <select id="priority" required>
+                    <option value="">Select Priority</option>
+                    <option value="Low">Low</option>
+                    <option value="Medium">Medium</option>
+                    <option value="High">High</option>
+                    <option value="Urgent">Urgent</option>
+                </select>
+
+                <label for="maintenanceStatus">Request Status</label>
+                <select id="maintenanceStatus" required>
+                    <option value="Pending">Pending</option>
+                    <option value="In Progress">In Progress</option>
+                    <option value="Completed">Completed</option>
+                </select>
+
+                <button type="submit" id="maintenanceSubmit">
+                    Add Request
+                </button>
+
+                <button
+                    type="button"
+                    id="cancelEdit"
+                    onclick="clearMaintenanceForm()"
+                    hidden
+                >
+                    Cancel Edit
+                </button>
+            </form>
+        </div>
+
+        <div class="table-container">
+            <h2>Maintenance Requests</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Property</th>
+                        <th>Problem</th>
+                        <th>Description</th>
+                        <th>Priority</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+
+                <tbody id="maintenanceTableBody"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="maintenance.js"></script>
+</body>
+</html>

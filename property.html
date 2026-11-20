@@ -1,0 +1,114 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Properties | Property Ecosystem</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="sidebar">
+    <h2>Property System</h2>
+    <p>Management Portal</p>
+
+    <a href="dashboard.html">Dashboard</a>
+    <a href="property.html" class="active">Properties</a>
+    <a href="tenant.html">Tenants</a>
+    <a href="lease.html">Leases</a>
+    <a href="maintenance.html">Maintenance</a>
+    <a href="payment.html">Payments</a>
+    <a href="index.html">Logout</a>
+</div>
+
+<div class="main-content">
+
+    <h1>Property Management</h1>
+    <p>Manage property details, rental prices and availability.</p>
+
+    <div class="form-container">
+        <h2 id="formTitle">Add Property</h2>
+
+        <form id="propertyForm">
+            <input type="hidden" id="editPropertyIndex">
+
+            <label for="propertyName">Property Name</label>
+            <input
+                type="text"
+                id="propertyName"
+                placeholder="e.g. Green View Apartment"
+                required
+            >
+
+            <label for="location">Location</label>
+            <input
+                type="text"
+                id="location"
+                placeholder="Enter property location"
+                required
+            >
+
+            <label for="propertyType">Property Type</label>
+            <select id="propertyType" required>
+                <option value="">Select Property Type</option>
+                <option value="Apartment">Apartment</option>
+                <option value="House">House</option>
+                <option value="Office">Office</option>
+                <option value="Shop">Shop</option>
+                <option value="Commercial">Commercial</option>
+            </select>
+
+            <label for="rent">Monthly Rent (৳)</label>
+            <input
+                type="number"
+                id="rent"
+                min="0"
+                placeholder="Enter monthly rent"
+                required
+            >
+
+            <label for="status">Property Status</label>
+            <select id="status" required>
+                <option value="">Select Status</option>
+                <option value="Available">Available</option>
+                <option value="Occupied">Occupied</option>
+            </select>
+
+            <button type="submit" id="propertySubmit">Add Property</button>
+            <button
+                type="button"
+                id="cancelEdit"
+                onclick="clearPropertyForm()"
+                hidden
+            >
+                Cancel Edit
+            </button>
+        </form>
+    </div>
+
+    <div class="table-container">
+        <h2>Property List</h2>
+
+        <table id="propertyTable">
+            <thead>
+                <tr>
+                    <th>Property Name</th>
+                    <th>Location</th>
+                    <th>Type</th>
+                    <th>Monthly Rent</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+
+            <tbody id="propertyTableBody"></tbody>
+        </table>
+    </div>
+
+</div>
+
+<script src="property.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,716 @@
+
+
+/* ========================================
+   PROPERTY LEASING & MAINTENANCE ECOSYSTEM
+   Professional Global Design
+======================================== */
+
+/* 1. Global Settings */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --primary: #2563eb;
+    --primary-dark: #1d4ed8;
+    --primary-light: #eff6ff;
+    --background: #f1f5f9;
+    --surface: #ffffff;
+    --text: #0f172a;
+    --muted: #64748b;
+    --border: #e2e8f0;
+    --success: #15803d;
+    --success-bg: #dcfce7;
+    --warning: #b45309;
+    --warning-bg: #fef3c7;
+    --danger: #dc2626;
+    --danger-bg: #fee2e2;
+    --radius: 12px;
+    --shadow: 0 4px 16px rgba(15, 23, 42, 0.06);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: var(--background);
+    color: var(--text);
+    font-size: 15px;
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+a {
+    color: var(--primary);
+    text-decoration: none;
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid #93c5fd;
+    outline-offset: 2px;
+}
+
+/* 2. Sidebar Navigation */
+
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    overflow-y: auto;
+    padding: 28px 18px;
+    background: #0f172a;
+    color: white;
+    box-shadow: 4px 0 18px rgba(15, 23, 42, 0.08);
+}
+
+.sidebar h2 {
+    font-size: 21px;
+    line-height: 1.4;
+    margin: 0 0 5px;
+    color: white;
+    letter-spacing: -0.4px;
+}
+
+.sidebar p {
+    color: #94a3b8;
+    font-size: 12px;
+    margin-bottom: 30px;
+}
+
+.sidebar a {
+    display: block;
+    color: #cbd5e1;
+    padding: 12px 14px;
+    margin: 5px 0;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: 0.2s;
+}
+
+.sidebar a:hover {
+    background: #1e293b;
+    color: white;
+}
+
+.sidebar a.active {
+    background: var(--primary);
+    color: white;
+    font-weight: 600;
+}
+
+/* 3. Main Content */
+
+.main-content {
+    margin-left: 250px;
+    padding: 32px;
+    min-height: 100vh;
+    min-width: 0;
+}
+
+.main-content > h1,
+.dashboard-header h1 {
+    font-size: 29px;
+    font-weight: 700;
+    letter-spacing: -0.7px;
+    color: var(--text);
+    line-height: 1.3;
+}
+
+.main-content > p {
+    margin: 8px 0 25px;
+    color: var(--muted);
+}
+
+/* 4. Forms */
+
+.form-container {
+    background: var(--surface);
+    padding: 26px;
+    margin: 22px 0 28px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.form-container h2 {
+    font-size: 20px;
+    margin-bottom: 22px;
+    color: var(--text);
+}
+
+.form-container form {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px 20px;
+}
+
+.form-container label {
+    display: block;
+    align-self: end;
+    font-size: 13px;
+    font-weight: 600;
+    color: #334155;
+    margin-top: 5px;
+}
+
+.form-container input,
+.form-container select,
+.form-container textarea {
+    width: 100%;
+    min-width: 0;
+    padding: 11px 12px;
+    background: white;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    color: var(--text);
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-container input:focus,
+.form-container select:focus,
+.form-container textarea:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.form-container textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+/* Make form fields and action buttons span the form width */
+.form-container input[type="hidden"] {
+    display: none;
+}
+
+.form-container form > button {
+    justify-self: start;
+    margin-top: 12px;
+}
+
+.form-container form > button:first-of-type {
+    grid-column: 1;
+}
+
+/* 5. Buttons */
+
+button,
+.btn {
+    border: none;
+    border-radius: 8px;
+    padding: 10px 16px;
+    font-weight: 600;
+    font-size: 13px;
+}
+
+button[type="submit"],
+#propertySubmit,
+#tenantSubmit,
+#leaseSubmit,
+#maintenanceSubmit,
+#paymentSubmit {
+    background: var(--primary);
+    color: white;
+}
+
+button[type="submit"]:hover,
+#propertySubmit:hover,
+#tenantSubmit:hover,
+#leaseSubmit:hover,
+#maintenanceSubmit:hover,
+#paymentSubmit:hover {
+    background: var(--primary-dark);
+}
+
+button[type="button"] {
+    background: #e2e8f0;
+    color: #334155;
+}
+
+button[type="button"]:hover {
+    background: #cbd5e1;
+}
+
+button[hidden] {
+    display: none !important;
+}
+
+/* 6. Tables */
+
+.table-container {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+    margin: 22px 0;
+    box-shadow: var(--shadow);
+    overflow-x: auto;
+}
+
+.table-container h2 {
+    font-size: 20px;
+    margin-bottom: 18px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    font-size: 13px;
+}
+
+thead {
+    background: #f8fafc;
+}
+
+th {
+    text-align: left;
+    padding: 14px 12px;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    color: #475569;
+    white-space: nowrap;
+    border-bottom: 1px solid var(--border);
+}
+
+td {
+    padding: 13px 12px;
+    border-bottom: 1px solid #edf2f7;
+    color: #334155;
+    vertical-align: middle;
+}
+
+tbody tr:hover {
+    background: #f8fafc;
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+td button {
+    margin: 2px;
+    white-space: nowrap;
+    padding: 7px 11px;
+    font-size: 12px;
+}
+
+td button:first-child {
+    background: #dbeafe;
+    color: #1d4ed8;
+}
+
+td button:first-child:hover {
+    background: #bfdbfe;
+}
+
+td button:last-child {
+    background: var(--danger-bg);
+    color: var(--danger);
+}
+
+td button:last-child:hover {
+    background: #fecaca;
+}
+
+/* 7. Dashboard Header */
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 25px;
+}
+
+.dashboard-header p {
+    color: var(--muted);
+    margin-top: 7px;
+}
+
+.dashboard-header button {
+    background: var(--primary);
+    color: white;
+}
+
+.dashboard-header button:hover {
+    background: var(--primary-dark);
+}
+
+/* 8. Dashboard Welcome Banner */
+
+.dashboard-welcome {
+    background: linear-gradient(120deg, #1d4ed8, #6366f1);
+    color: white;
+    padding: 30px;
+    border-radius: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 25px;
+    box-shadow: 0 8px 24px rgba(37, 99, 235, 0.16);
+}
+
+.dashboard-welcome h2 {
+    font-size: 25px;
+    margin-bottom: 8px;
+}
+
+.dashboard-welcome p {
+    color: #e0e7ff;
+    max-width: 620px;
+}
+
+.welcome-icon {
+    font-size: 60px;
+}
+
+/* 9. Dashboard Statistics */
+
+.dashboard-stats {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+    margin-bottom: 25px;
+}
+
+.dashboard-card {
+    min-width: 0;
+    background: white;
+    padding: 22px;
+    border: 1px solid var(--border);
+    border-radius: 13px;
+    box-shadow: var(--shadow);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.dashboard-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 9px 24px rgba(15, 23, 42, 0.1);
+}
+
+.card-icon {
+    font-size: 27px;
+    margin-bottom: 10px;
+}
+
+.dashboard-card p {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.dashboard-card h2 {
+    font-size: 31px;
+    margin: 9px 0 13px;
+    line-height: 1.3;
+    color: var(--text);
+}
+
+.dashboard-card a {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--primary);
+}
+
+/* 10. Dashboard Panels */
+
+.dashboard-lower {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.dashboard-panel {
+    min-width: 0;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 13px;
+    padding: 24px;
+    box-shadow: var(--shadow);
+}
+
+.dashboard-panel h2 {
+    font-size: 19px;
+    margin-bottom: 7px;
+}
+
+.dashboard-panel > p {
+    font-size: 13px;
+    color: var(--muted);
+}
+
+.quick-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 18px;
+}
+
+.quick-action {
+    display: grid;
+    grid-template-columns: 28px minmax(0, 1fr) 20px;
+    align-items: center;
+    gap: 10px;
+    padding: 13px;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    color: #334155;
+    font-size: 13px;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.quick-action:hover {
+    background: var(--primary-light);
+    border-color: #bfdbfe;
+}
+
+.recent-maintenance-item {
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.recent-maintenance-item:last-child {
+    border-bottom: none;
+}
+
+.recent-maintenance-item h3 {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.recent-maintenance-item p {
+    color: var(--muted);
+    font-size: 12px;
+    margin-bottom: 8px;
+    overflow-wrap: anywhere;
+}
+
+.maintenance-status {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 20px;
+    background: var(--warning-bg);
+    color: var(--warning);
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.panel-link {
+    display: inline-block;
+    margin-top: 16px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.dashboard-footer {
+    text-align: center;
+    color: var(--muted);
+    font-size: 12px;
+    padding: 20px 10px;
+}
+
+/* 11. Login Page */
+
+.login-container {
+    width: min(420px, calc(100% - 32px));
+    margin: 8vh auto;
+    background: white;
+    padding: 32px;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    box-shadow: 0 12px 40px rgba(15, 23, 42, 0.1);
+}
+
+.login-container h1,
+.login-container h2 {
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.login-container p {
+    color: var(--muted);
+    text-align: center;
+    margin-bottom: 22px;
+}
+
+.login-container input {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin: 12px 0;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+}
+
+.login-container button {
+    width: 100%;
+    background: var(--primary);
+    color: white;
+    margin-top: 10px;
+}
+
+.login-container button:hover {
+    background: var(--primary-dark);
+}
+
+/* 12. Utility Classes */
+
+.text-muted {
+    color: var(--muted);
+}
+
+.status-paid,
+.status-completed,
+.status-available {
+    color: var(--success);
+    background: var(--success-bg);
+}
+
+.status-pending,
+.status-active {
+    color: var(--warning);
+    background: var(--warning-bg);
+}
+
+.status-overdue,
+.status-expired {
+    color: var(--danger);
+    background: var(--danger-bg);
+}
+
+/* 13. Responsive Layout */
+
+@media (max-width: 1200px) {
+    .dashboard-stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .main-content {
+        padding: 25px;
+    }
+}
+
+@media (max-width: 900px) {
+    .sidebar {
+        width: 210px;
+        padding: 22px 13px;
+    }
+
+    .main-content {
+        margin-left: 210px;
+        padding: 22px;
+    }
+
+    .dashboard-lower {
+        grid-template-columns: 1fr;
+    }
+
+    .form-container form {
+        grid-template-columns: 1fr;
+    }
+
+    .form-container form > button:first-of-type {
+        grid-column: 1;
+    }
+}
+
+@media (max-width: 600px) {
+    .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+        padding: 18px;
+    }
+
+    .sidebar h2 {
+        font-size: 19px;
+    }
+
+    .sidebar p {
+        margin-bottom: 12px;
+    }
+
+    .sidebar a {
+        display: inline-block;
+        margin: 3px 2px;
+        padding: 9px 10px;
+        font-size: 12px;
+    }
+
+    .main-content {
+        margin-left: 0;
+        padding: 18px 12px;
+    }
+
+    .main-content > h1,
+    .dashboard-header h1 {
+        font-size: 24px;
+    }
+
+    .dashboard-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard-welcome {
+        padding: 22px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .dashboard-welcome h2 {
+        font-size: 21px;
+    }
+
+    .welcome-icon {
+        font-size: 42px;
+    }
+
+    .dashboard-header {
+        align-items: flex-start;
+    }
+
+    .dashboard-card,
+    .dashboard-panel,
+    .form-container,
+    .table-container {
+        padding: 17px;
+    }
+
+    .table-container table {
+        min-width: 650px;
+    }
+
+    .login-container {
+        padding: 24px;
+    }
+}

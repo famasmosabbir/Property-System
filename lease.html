@@ -1,0 +1,112 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leases | Property Ecosystem</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="sidebar">
+        <h2>Property System</h2>
+        <p>Management Portal</p>
+
+        <a href="dashboard.html">Dashboard</a>
+        <a href="property.html">Properties</a>
+        <a href="tenant.html">Tenants</a>
+        <a href="lease.html" class="active">Leases</a>
+        <a href="maintenance.html">Maintenance</a>
+        <a href="payment.html">Payments</a>
+        <a href="index.html">Logout</a>
+    </div>
+
+    <div class="main-content">
+        <h1>Lease Management</h1>
+        <p>Create and manage property rental agreements.</p>
+
+        <div class="form-container">
+            <h2 id="formTitle">Add New Lease</h2>
+
+            <form id="leaseForm">
+                <input type="hidden" id="editLeaseIndex">
+
+                <label for="leaseTenant">Tenant Name</label>
+                <input
+                    type="text"
+                    id="leaseTenant"
+                    placeholder="Enter tenant name"
+                    required
+                >
+
+                <label for="leaseProperty">Property Name</label>
+                <input
+                    type="text"
+                    id="leaseProperty"
+                    placeholder="Enter property name"
+                    required
+                >
+
+                <label for="leaseRent">Monthly Rent (৳)</label>
+                <input
+                    type="number"
+                    id="leaseRent"
+                    min="0"
+                    placeholder="Enter monthly rent"
+                    required
+                >
+
+                <label for="leaseStart">Lease Start Date</label>
+                <input type="date" id="leaseStart" required>
+
+                <label for="leaseEnd">Lease End Date</label>
+                <input type="date" id="leaseEnd" required>
+
+                <label for="leaseStatus">Lease Status</label>
+                <select id="leaseStatus" required>
+                    <option value="">Select Status</option>
+                    <option value="Active">Active</option>
+                    <option value="Pending">Pending</option>
+                    <option value="Expired">Expired</option>
+                </select>
+
+                <button type="submit" id="leaseSubmit">
+                    Add Lease
+                </button>
+
+                <button
+                    type="button"
+                    id="cancelEdit"
+                    onclick="clearLeaseForm()"
+                    hidden
+                >
+                    Cancel Edit
+                </button>
+            </form>
+        </div>
+
+        <div class="table-container">
+            <h2>Lease Records</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Tenant</th>
+                        <th>Property</th>
+                        <th>Monthly Rent</th>
+                        <th>Start Date</th>
+                        <th>End Date</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+
+                <tbody id="leaseTableBody"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="lease.js"></script>
+</body>
+</html>

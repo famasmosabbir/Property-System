@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Property Leasing & Maintenance Ecosystem</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="login-page">
+
+    <div class="login-container">
+        <div class="login-header">
+            <div class="login-icon">🏢</div>
+            <h1>Property Ecosystem</h1>
+            <p>Leasing & Maintenance Management</p>
+        </div>
+
+        <div class="login-form">
+            <h2>Welcome Back!</h2>
+            <p class="login-subtitle">Sign in to access your dashboard.</p>
+
+            <form id="loginForm">
+                <label for="email">Email Address</label>
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Enter your email"
+                    autocomplete="username"
+                    required
+                >
+
+                <label for="password">Password</label>
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="Enter your password"
+                    autocomplete="current-password"
+                    required
+                >
+
+                <button type="submit">Login to Dashboard</button>
+
+                <p id="message" role="status" aria-live="polite"></p>
+            </form>
+        </div>
+
+        <div class="login-footer">
+            <p>Property Leasing & Maintenance Ecosystem</p>
+        </div>
+    </div>
+
+    <script src="javascript.js"></script>
+</body>
+</html>

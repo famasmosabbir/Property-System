@@ -1,0 +1,146 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Property Ecosystem</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="sidebar">
+    <h2>Property System</h2>
+    <p>Management Portal</p>
+
+    <a href="dashboard.html" class="active">Dashboard</a>
+    <a href="property.html">Properties</a>
+    <a href="tenant.html">Tenants</a>
+    <a href="lease.html">Leases</a>
+    <a href="maintenance.html">Maintenance</a>
+    <a href="payment.html">Payments</a>
+    <a href="index.html">Logout</a>
+</div>
+
+<div class="main-content">
+
+    <header class="dashboard-header">
+        <div>
+            <h1>Dashboard</h1>
+            <p>Welcome to your Property Leasing & Maintenance Ecosystem.</p>
+        </div>
+
+        <button type="button" onclick="refreshDashboard()">
+            Refresh Data
+        </button>
+    </header>
+
+    <section class="dashboard-welcome">
+        <div>
+            <h2>Manage Your Properties Smarter</h2>
+            <p>
+                Monitor properties, tenants, leases and maintenance
+                requests from one place.
+            </p>
+        </div>
+        <div class="welcome-icon">🏢</div>
+    </section>
+
+    <section class="dashboard-stats">
+
+        <div class="dashboard-card">
+            <div class="card-icon">🏢</div>
+            <p>Total Properties</p>
+            <h2 id="totalProperties">0</h2>
+            <a href="property.html">View Properties →</a>
+        </div>
+
+        <div class="dashboard-card">
+            <div class="card-icon">🔑</div>
+            <p>Available Properties</p>
+            <h2 id="availableProperties">0</h2>
+            <a href="property.html">View Availability →</a>
+        </div>
+
+        <div class="dashboard-card">
+            <div class="card-icon">👥</div>
+            <p>Occupied Properties</p>
+            <h2 id="occupiedProperties">0</h2>
+            <a href="property.html">View Occupancy →</a>
+        </div>
+
+        <div class="dashboard-card">
+            <div class="card-icon">🛠️</div>
+            <p>Pending Maintenance</p>
+            <h2 id="pendingMaintenance">0</h2>
+            <a href="maintenance.html">View Requests →</a>
+        </div>
+
+    </section>
+
+    <section class="dashboard-lower">
+
+        <div class="dashboard-panel">
+            <h2>Quick Actions</h2>
+            <p>Quickly access your main management tasks.</p>
+
+            <div class="quick-actions">
+                <a href="property.html" class="quick-action">
+                    <span>🏠</span>
+                    <span>Add Property</span>
+                    <span>→</span>
+                </a>
+
+                <a href="tenant.html" class="quick-action">
+                    <span>👤</span>
+                    <span>Manage Tenants</span>
+                    <span>→</span>
+                </a>
+
+                <a href="lease.html" class="quick-action">
+                    <span>📄</span>
+                    <span>Manage Leases</span>
+                    <span>→</span>
+                </a>
+
+                <a href="maintenance.html" class="quick-action">
+                    <span>🔧</span>
+                    <span>Maintenance Requests</span>
+                    <span>→</span>
+                </a>
+
+                <a href="payment.html" class="quick-action">
+                    <span>💳</span>
+                    <span>Manage Payments</span>
+                    <span>→</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="dashboard-panel">
+            <h2>Recent Maintenance</h2>
+            <p>Latest maintenance requests from your properties.</p>
+
+            <div id="recentMaintenance">
+                <p>No maintenance requests yet.</p>
+            </div>
+
+            <a href="maintenance.html" class="panel-link">
+                View All Requests →
+            </a>
+        </div>
+
+    </section>
+
+    <footer class="dashboard-footer">
+        Property Leasing & Maintenance Ecosystem
+        <span> | Dashboard</span>
+    </footer>
+
+</div>
+
+<script src="dashboard.js"></script>
+
+</body>
+</html>

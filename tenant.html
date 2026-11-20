@@ -1,0 +1,111 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tenants | Property Ecosystem</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="sidebar">
+        <h2>Property System</h2>
+        <p>Management Portal</p>
+
+        <a href="dashboard.html">Dashboard</a>
+        <a href="property.html">Properties</a>
+        <a href="tenant.html" class="active">Tenants</a>
+        <a href="lease.html">Leases</a>
+        <a href="maintenance.html">Maintenance</a>
+        <a href="payment.html">Payments</a>
+        <a href="index.html">Logout</a>
+    </div>
+
+    <div class="main-content">
+        <h1>Tenant Management</h1>
+        <p>Manage tenant information and rental periods.</p>
+
+        <div class="form-container">
+            <h2 id="formTitle">Add New Tenant</h2>
+
+            <form id="tenantForm">
+                <input type="hidden" id="editTenantIndex">
+
+                <label for="tenantName">Full Name</label>
+                <input
+                    type="text"
+                    id="tenantName"
+                    placeholder="Enter tenant's full name"
+                    required
+                >
+
+                <label for="tenantEmail">Email Address</label>
+                <input
+                    type="email"
+                    id="tenantEmail"
+                    placeholder="Enter email address"
+                    required
+                >
+
+                <label for="tenantPhone">Phone Number</label>
+                <input
+                    type="tel"
+                    id="tenantPhone"
+                    placeholder="Enter phone number"
+                    required
+                >
+
+                <label for="tenantProperty">Property Name</label>
+                <input
+                    type="text"
+                    id="tenantProperty"
+                    placeholder="Enter rented property name"
+                    required
+                >
+
+                <label for="startDate">Lease Start Date</label>
+                <input type="date" id="startDate" required>
+
+                <label for="endDate">Lease End Date</label>
+                <input type="date" id="endDate" required>
+
+                <button type="submit" id="tenantSubmit">
+                    Add Tenant
+                </button>
+
+                <button
+                    type="button"
+                    id="cancelEdit"
+                    onclick="clearTenantForm()"
+                    hidden
+                >
+                    Cancel Edit
+                </button>
+            </form>
+        </div>
+
+        <div class="table-container">
+            <h2>Tenant Directory</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Full Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Property</th>
+                        <th>Start Date</th>
+                        <th>End Date</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+
+                <tbody id="tenantTableBody"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="tenant.js"></script>
+</body>
+</html>
